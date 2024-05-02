@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 *.npy
 *.pdf
+test.ipynb
 
 # C extensions
 *.so
