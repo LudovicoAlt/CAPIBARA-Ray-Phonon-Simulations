@@ -145,9 +145,11 @@ class Analysis_TES():
             #Randomly pick a probability ?
             abs_chance = (np.random.uniform(0, 1, len(minimum_distance)) < self.p_abs)
 
+            #! the hard coded clostest_hit == 0 is necessary to keep code efficient, 
+            #! otherwise only 1 TES would absorb phonons as it is the first in line 
             hittable = len(self.crystal_geometry.detector_labels) #? only TES with labels can be hit (in order)
-            #! Hard code the condition for hittable to 0 (top wall) but can be changed by modifying hittable
 
+            #! Hard code the condition for hittable to 0 (top wall) but can be changed by modifying hittable
             absorption_condition = ( (absorbed_in_kid) & (abs_chance) & (closest_hit==0) & (not_dead) )
         
             conditions = ( absorption_condition ) | (phonon_total_path > mean_free_paths)
@@ -172,10 +174,7 @@ class Analysis_TES():
 
         detectors = np.array(absorbed_phonons).T[1]
         times = np.array(absorbed_phonons).T[0]
-
-
         hist_phonons = np.zeros( (len(self.crystal_geometry.detector_labels), n_t_bins) )
-
 
         for i_det, _ in enumerate(self.crystal_geometry.detector_labels):
             hist_phonons[i_det], edge_1 = np.histogram(times[detectors==i_det], bins=n_t_bins, range=(0, n_t_bins))

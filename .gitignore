@@ -5,6 +5,12 @@ __pycache__/
 *.npy
 *.pdf
 test.ipynb
+datafiles/
+images_saves/
+Fit*.ipynb
+Ray*.ipynb
+Pedro.ipynb
+Performance*.ipynb
 
 # C extensions
 *.so
