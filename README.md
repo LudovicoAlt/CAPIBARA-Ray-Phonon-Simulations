@@ -14,15 +14,14 @@ Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
 
 ## Citation
 
-Please use the following citation
+If you use this tool I would appreciate a citation, here is a handy suggested bibtex : 
 ```
-@ARTICLE{DeSantis,
-        author = {{De Santis}, A.~L.},
+@misc{CAPIBARA,
+        author = {De Santis Alessio~Ludovico},
         title = "{CAPIBARA : Athermal phonon simulations for cryogenic experiments}",
         keywords = {Phonons and Cryogenics},
         year = 2024,
-        month = jul,
-        doi = {0}
+        url = {https://github.com/LudovicoAlt/CAPIBARA-Ray-Phonon-Simulations}
 }
 ```
 
