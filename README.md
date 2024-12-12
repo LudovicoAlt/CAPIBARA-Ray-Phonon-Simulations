@@ -6,7 +6,7 @@
   <img src="CAPIBARA_LOGO.jpg" width="200" title="Logo">
 </p>
 
-Code for Athermal Phonon Interactions in Bolometers with Ray-tracing
+Code for Athermal Phonon Interactions with BAllistic RAy-tracing
 
 This library contains functions to simulate athermal phonons and the response of cryogenic detectors to these events.
 
