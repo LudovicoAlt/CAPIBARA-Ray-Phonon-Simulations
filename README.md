@@ -6,7 +6,7 @@
   <img src="CAPIBARA_LOGO.jpg" width="200" title="Logo">
 </p>
 
-Cryogenic Athermal Propagation In Bolometers And Ray-tracing Analysis
+Cryogenic Athermal Propagation In Bolometers And Ray-tracing
 
 This library contains functions to simulate athermal phonons and the response of cryogenic detectors to these events.
 
