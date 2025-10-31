@@ -37,42 +37,30 @@ class Geometry_TES():
         self.detector_labels = detector_labels
         self.detector_radius = detector_radius
 
-
 class Analysis_TES():
 
-    n_sims = 10_000 #Number of phonons, proportional to energy
-
-    v_fast = 1 
-    v_slow = 0.5
-
-    lifetime = 1000 #the dimension of the box
-    steps = 1000
-
-    p_abs = 0.001 #probability of being absorbed => generalize to array using np random choice non 1D shape (check documentation)
-
-    epsilon = 0.0008 #Distribute them so they have non degenerate closest wall
-
-    crystal_geometry : Geometry_TES 
-
-    def __init__(self, v_fast, v_slow, p_abs, crystal_geometry):
+    def __init__(self, crystal_geometry : Geometry_TES , v_fast = 1, v_slow = 0.5, p_abs = 0.0064, n_sims=10_000, lifetime=1000, steps=1000, epsilon=0.0008):
         '''
         v_fast : float : velocity of the phonons in the fast direction
         v_slow : float : velocity of the phonons in the slow direction
-        lifetime : float : lifetime of the phonons
-        w : float : width of the KID
         p_abs : float : probability of being absorbed
-        p_abs_holder : float : probability of being absorbed by the holder
-        p_decay : float : probability of decay
         crystal_geometry : Geometry : geometry of the crystal
+        n_sims : int : number of phonons to simulate (default: 10_000)
+        lifetime : float : lifetime of the phonons (default: 1000)
+        steps : int : number of simulation steps (default: 1000)
+        epsilon : float : small offset to avoid degenerate positions (default: 0.0008)
         '''
 
-        self.v_fast = v_fast
-        self.v_slow = v_slow
-        self.p_abs = p_abs
+        self.v_fast     = v_fast
+        self.v_slow     = v_slow
+        self.p_abs      = p_abs
+        self.n_sims     = n_sims
+        self.lifetime   = lifetime
+        self.steps      = steps
+        self.epsilon    = epsilon
 
-        self.crystal_geometry = crystal_geometry
-        self.w = crystal_geometry.detector_radius
-
+        self.crystal_geometry   = crystal_geometry
+        self.w                  = crystal_geometry.detector_radius
 
     #v_slow is on a plane, while v_fast is on z direction
     def initialize(self, starting_position):
